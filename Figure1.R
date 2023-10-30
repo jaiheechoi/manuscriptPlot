@@ -128,25 +128,10 @@ for(i in 1:runs){
      		if(is.na(nullFit$beta_fit)){
      			icskatOut <- list(p_SKAT = NA, p_burden = NA)} else{
       			icskatOut <- ICskat(left_dmat = dmats$left_dmat, right_dmat=dmats$right_dmat, lt = lt, rt = rt, obs_ind = obs_ind, tpos_ind = tpos_ind, gMat = gMat, null_beta = as.numeric(nullFit$beta_fit), Itt = nullFit$Itt) }
-                # print(icskatOut)
-		# save the pvalues
 
-		# run Wu
-	 	#gSim <- IBS(gMat)
-		#trunct <- runif(length(lt), min = 0, max = 0.25)
-		#LR = cbind(lt, rt)
-		#test_results_trunc = WVIC_test(X=gMat, bound_times=LR, trunct=trunct, Gsim=gSim, Fsim=NULL, r=0, lim=5*10^5, acc=10^(-5), covmat=FALSE)
-		#wu_pvals_trunc[m] <- test_results_trunc$pval
-		
-		#test_results = WVIC_test(X=gMat, Z = xMat, bound_times=LR, Gsim=gSim, Fsim=NULL, r=0, lim=5*10^5, acc=10^(-5), covmat=FALSE)
-                #wu_pvals[m] <- test_results$pval
-	
-
-		#print("this is wu")
-		#print(wu_pvals[m])
-		#save the pvals
-      		single_pvals[m] <- icskatOut$p_SKAT
-                burden_pvals[m] <- icskatOut$p_burden
+			#save the pvals
+      			single_pvals[m] <- icskatOut$p_SKAT
+                	burden_pvals[m] <- icskatOut$p_burden
 
 
 	} #end of looping though k
